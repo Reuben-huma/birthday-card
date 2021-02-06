@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Birthday card</string>
-    <string name="happy_birthday">Happy birthday</string>
-    <string name="recipient">From Reuben</string>
+    <string name="birthday_title">Happy birthday %s</string>
+    <string name="birthday_message">You are an amazing person and i love you!</string>
+    <string name="birthday_footer">From: %s</string>
+    <string name="item_share">Share</string>
 </resources>
