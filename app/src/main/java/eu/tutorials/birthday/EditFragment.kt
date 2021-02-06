@@ -6,20 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
-import eu.tutorials.birthday.databinding.FragmentBirthdayBinding
+import com.google.android.material.snackbar.Snackbar
+import eu.tutorials.birthday.databinding.FragmentEditBinding
 import eu.tutorials.birthday.model.BirthdayViewModel
 
-class BirthdayFragment : Fragment() {
+class EditFragment : Fragment() {
 
-    private var binding: FragmentBirthdayBinding? = null
+    private var binding: FragmentEditBinding? = null
     private val viewModel: BirthdayViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentBirthdayBinding.inflate(inflater, container, false)
+        binding = FragmentEditBinding.inflate(inflater, container, false)
         return binding?.root
     }
 
@@ -28,8 +28,8 @@ class BirthdayFragment : Fragment() {
 
         binding?.apply {
             lifecycleOwner = viewLifecycleOwner
-            birthdayFragment = this@BirthdayFragment
-            birthdayViewModel = viewModel
+            editFragment = this@EditFragment
+            editViewModel = viewModel
         }
     }
 
@@ -38,8 +38,8 @@ class BirthdayFragment : Fragment() {
         binding = null
     }
 
-    fun onFabClick() {
-        findNavController().navigate(R.id.action_birthdayFragment_to_editFragment)
+    fun onFloatingActionButton() {
+        Snackbar.make( binding?.constraintLayout?.rootView!!, R.string.saved, Snackbar.LENGTH_SHORT).show()
     }
 
 }

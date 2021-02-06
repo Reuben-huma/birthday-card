@@ -4,4 +4,9 @@
     <string name="birthday_message">You are an amazing person and i love you!</string>
     <string name="birthday_footer">From: %s</string>
     <string name="item_share">Share</string>
+    <string name="sharing_not_available">Sharing currently not available.</string>
+    <string name="name">Name</string>
+    <string name="email">Email address</string>
+    <string name="from">From</string>
+    <string name="saved">Saved</string>
 </resources>

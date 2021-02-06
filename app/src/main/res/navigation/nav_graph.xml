@@ -9,5 +9,20 @@
         android:id="@+id/birthdayFragment"
         android:name="eu.tutorials.birthday.BirthdayFragment"
         android:label="@string/app_name"
-        tools:layout="@layout/fragment_birthday" />
+        tools:layout="@layout/fragment_birthday" >
+        <action
+            android:id="@+id/action_birthdayFragment_to_editFragment"
+            app:destination="@id/editFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="eu.tutorials.birthday.EditFragment"
+        android:label="Edit"
+        tools:layout="@layout/fragment_edit">
+        <action
+            android:id="@+id/action_editFragment_to_birthdayFragment"
+            app:destination="@id/birthdayFragment"
+            app:popUpTo="@id/birthdayFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
