@@ -6,16 +6,13 @@ import androidx.lifecycle.ViewModel
 
 class BirthdayViewModel : ViewModel() {
     private var _recipient = MutableLiveData<String>()
-    val recipient: LiveData<String> get() = _recipient
-
-    private var _message = MutableLiveData<String>()
-    val message: LiveData<String> get() = _message
+    val recipient: LiveData<String> = _recipient
 
     private var _sender = MutableLiveData<String>()
-    val sender: LiveData<String> get() = _sender
+    val sender: LiveData<String> = _sender
 
     init {
         _recipient.value = "James"
-        _sender.value = "Reuben"
+        _sender.value = "Jonah"
     }
 }
