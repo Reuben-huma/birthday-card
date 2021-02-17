@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import com.google.android.material.snackbar.Snackbar
 import eu.tutorials.birthday.databinding.FragmentEditBinding
 import eu.tutorials.birthday.model.BirthdayViewModel
@@ -13,7 +13,7 @@ import eu.tutorials.birthday.model.BirthdayViewModel
 class EditFragment : Fragment() {
 
     private var binding: FragmentEditBinding? = null
-    private val viewModel: BirthdayViewModel by viewModels()
+    private val viewModel: BirthdayViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,7 +39,13 @@ class EditFragment : Fragment() {
     }
 
     fun onFloatingActionButton() {
-        Snackbar.make( binding?.constraintLayout?.rootView!!, R.string.saved, Snackbar.LENGTH_SHORT).show()
+        viewModel.setProperties(
+            recipientName = binding?.nameEditText?.text.toString(),
+            emailAddress = binding?.emailEditText?.text.toString(),
+            senderName = binding?.fromEditText?.text.toString()
+        )
+        Snackbar.make(binding?.constraintLayout?.rootView!!, R.string.saved, Snackbar.LENGTH_SHORT)
+            .show()
     }
 
 }

@@ -6,7 +6,7 @@ import android.view.*
 import android.widget.Toast
 import androidx.core.app.ShareCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import eu.tutorials.birthday.databinding.FragmentBirthdayBinding
 import eu.tutorials.birthday.model.BirthdayViewModel
@@ -14,7 +14,7 @@ import eu.tutorials.birthday.model.BirthdayViewModel
 class BirthdayFragment : Fragment() {
 
     private var binding: FragmentBirthdayBinding? = null
-    private val viewModel: BirthdayViewModel by viewModels()
+    private val viewModel: BirthdayViewModel by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         setHasOptionsMenu(true)
@@ -56,6 +56,7 @@ class BirthdayFragment : Fragment() {
     private fun share() {
 
         val shareIntent = ShareCompat.IntentBuilder.from(requireActivity())
+            .setEmailTo(arrayOf(viewModel.emailAddress.value))
             .setSubject(getString(R.string.birthday_title, viewModel.recipient.value))
             .setText(getString(R.string.birthday_message))
             .setType("text/plain")
