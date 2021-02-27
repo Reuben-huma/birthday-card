@@ -1,4 +1,4 @@
-package eu.tutorials.birthday.model
+package eu.tutorials.birthday.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -20,8 +20,8 @@ class BirthdayViewModel : ViewModel() {
     }
 
     fun setProperties(recipientName: String?, emailAddress: String?, senderName: String?) {
-        _recipient.value = recipientName
-        _emailAddress.value = emailAddress
-        _sender.value = senderName
+        _recipient.value = recipientName ?: " "
+        _emailAddress.value = emailAddress ?: " "
+        _sender.value = senderName ?: " "
     }
 }

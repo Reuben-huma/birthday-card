@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.google.android.material.snackbar.Snackbar
 import eu.tutorials.birthday.databinding.FragmentEditBinding
-import eu.tutorials.birthday.model.BirthdayViewModel
+import eu.tutorials.birthday.viewmodels.BirthdayViewModel
 
 class EditFragment : Fragment() {
 
@@ -39,13 +39,14 @@ class EditFragment : Fragment() {
     }
 
     fun onFloatingActionButton() {
+
         viewModel.setProperties(
             recipientName = binding?.nameEditText?.text.toString(),
             emailAddress = binding?.emailEditText?.text.toString(),
             senderName = binding?.fromEditText?.text.toString()
         )
-        Snackbar.make(binding?.constraintLayout?.rootView!!, R.string.saved, Snackbar.LENGTH_SHORT)
-            .show()
+
+        Snackbar.make(binding?.constraintLayout?.rootView!!, R.string.saved, Snackbar.LENGTH_SHORT).show()
     }
 
 }

@@ -10,7 +10,7 @@
             type="eu.tutorials.birthday.BirthdayFragment" />
         <variable
             name="birthdayViewModel"
-            type="eu.tutorials.birthday.model.BirthdayViewModel" />
+            type="eu.tutorials.birthday.viewmodels.BirthdayViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

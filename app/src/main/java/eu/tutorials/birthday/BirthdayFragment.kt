@@ -9,15 +9,19 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import eu.tutorials.birthday.databinding.FragmentBirthdayBinding
-import eu.tutorials.birthday.model.BirthdayViewModel
+import eu.tutorials.birthday.viewmodels.BirthdayViewModel
 
 class BirthdayFragment : Fragment() {
 
     private var binding: FragmentBirthdayBinding? = null
     private val viewModel: BirthdayViewModel by activityViewModels()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentBirthdayBinding.inflate(inflater, container, false)
         return binding?.root
     }
@@ -54,7 +58,6 @@ class BirthdayFragment : Fragment() {
     }
 
     private fun share() {
-
         val shareIntent = ShareCompat.IntentBuilder.from(requireActivity())
             .setEmailTo(arrayOf(viewModel.emailAddress.value))
             .setSubject(getString(R.string.birthday_title, viewModel.recipient.value))

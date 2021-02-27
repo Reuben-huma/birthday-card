@@ -10,7 +10,7 @@
             type="eu.tutorials.birthday.EditFragment" />
         <variable
             name="editViewModel"
-            type="eu.tutorials.birthday.model.BirthdayViewModel" />
+            type="eu.tutorials.birthday.viewmodels.BirthdayViewModel" />
     </data>
 
     <ScrollView
